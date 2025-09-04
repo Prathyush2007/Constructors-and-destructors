@@ -1,0 +1,59 @@
+// EXPERIMENT-12
+// Name:- Prathyush 
+// PRN-24070123064
+// Class-ENTC A3
+//Problem Statement:- Write a code to print output by calling the copy constructor.
+
+
+#include <iostream>
+using namespace std;
+
+class Car {
+    string Car_name;
+    string Manufacturer;
+    int Price;
+
+public:
+    
+    Car(string c, string m, int p) {
+        Car_name = c;
+        Manufacturer = m;
+        Price = p;
+    }
+
+   
+    Car(const Car &c) {
+        Car_name = c.Car_name;
+        Manufacturer = c.Manufacturer;
+        Price = c.Price;
+        cout << "copy constructor called!!" << endl;
+    }
+
+    void display() {
+        cout << "Car Name: " << Car_name 
+             << "\nManufacturer: " << Manufacturer 
+             << "\nPrice: " << Price << endl;
+    }
+};
+
+int main() {
+    Car c1("Nissan", "Nissan GTR", 50000000); 
+    c1.display();
+
+    Car copyC(c1);   
+    copyC.display();
+
+    return 0;
+}
+
+
+/*Output:-
+
+Car Name: Nissan GTR
+Manufacturer: Nissan
+Price: 50000000
+copy constructor called!!
+Car Name: Nissan GTR
+Manufacturer: Nissan
+Price: 50000000
+*/
